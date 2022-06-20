@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Loja</title>
+    <a href="https://ibb.co/gtdns2y"><img src="https://i.ibb.co/F8XPGr6/RONEX-LOGO.png" class="logo" alt="RONEX-LOGO" border="0" /></a>
+    
+    
+    <p>Valor unitário do produto: </p>
+    <input type="number" name="valor" id="valor">
+    
+    <p>Quantidade: </p>
+    <input type="number" name="quantidade" id="quantidade"> <br><br>
+
+    <input type="button" value="resultado" onclick="resultado()">
+    <br>
+    <br>
+    <div id="resultado">Resultado</div>
+
+    <style>
+        body{
+            font: normal 10pt Verdana;
+            width: 500px;
+            height: 100px;
+            background: rgb(255, 255, 255);
+            margin: auto;
+            padding: 3%;  
+
+        }   
+        .logo{
+            width: 200px;
+            padding-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function resultado() {
+        var valor = window.document.getElementById('valor')
+        var quantidade = window.document.getElementById('quantidade')
+        var resultado = window.document.getElementById('resultado')
+        var v1 = Number(valor.value)
+        var q1 = Number(quantidade.value)
+        var sj = v1*q1
+        var j3 = sj-(sj*0.03)
+        var j6 = sj-(sj*0.06)
+        var j10 = sj-(sj*0.1)
+        var sjj = `O valor sem desconto foi: R$ ${sj}!`;
+        if(q1 >0 && q1< 5){
+            resultado.innerHTML = `O valor sem desconto é: R$ ${sj}!`
+            
+        }
+        else if(q1 > 4 && q1 < 20){
+            resultado.innerHTML = `O valor com desconto, aplicando 3% é de R$ ${j3} !`
+            
+        }
+        else if(q1 > 19 && q1 < 100){
+            resultado.innerHTML = `O valor com desconto, aplicando 6% é de R$ ${j6} !`
+            
+            
+        }
+        else if(q1 >= 100){
+            resultado.innerHTML = `O valor com desconto, aplicando 10% é de R$ ${j10} !`
+        }
+        else{
+            resultado.innerHTML = `Valor ou quantidade de produtos inválido!`
+        }
+        }
+    </script>
+    
+</body>
+</html>
